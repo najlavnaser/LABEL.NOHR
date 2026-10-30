@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Customers - NOHR Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="customers.css" />
+  </head>
+
+  <body>
+    <div class="app">
+
+    <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="logo">nohr.</span>
+      <span class="role">ADMIN</span>
+    </div>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="dashboard.html" data-icon="dashboard">Dashboard</a>
+      <a href="#" data-icon="bag">Orders</a>
+      <a href="#" data-icon="box">Products</a>
+      <a href="customers.html" class="active" data-icon="users">Customers</a>
+      <a href="#" data-icon="box">Category</a>
+      <a href="#" data-icon="tag">Offers</a>
+      <a href="#" data-icon="chat">Reviews</a>
+      <a href="#" data-icon="ticket">Coupons</a>
+      <a href="#" data-icon="return">Return Requests</a>
+      <a href="#" data-icon="chart">Analytics</a>
+    </nav>
+    <div class="nav nav-foot">
+      <a href="#" data-icon="gear">Settings</a>
+      
+    </div>
+  </aside>
+
+
+    <div class="main">
+        <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" data-icon="menu"></button>
+        <label class="search">
+        <span data-icon="search"></span>
+        <input type="search" id="search" placeholder="Search analytics..." autocomplete="off">
+      </label>
+      
+      <div class="top-right">
+        <button class="icon-btn has-dot" aria-label="Notifications" data-icon="bell"></button>
+        <button class="icon-btn" aria-label="Settings" data-icon="gear"></button>
+        <span class="divider"></span>
+        <div class="user">
+          <div class="user-text"><strong>Najla</strong><small>Founder &amp; CEO</small></div>
+          <span class="avatar" aria-hidden="true">N</span>
+        </div>
+      </div>
+    </header>
+
+
+
+        <div class ="content">
+      <h1>Customer Management</h1>
+
+      <section class="row-3">
+        <article class="card table-card">
+          <div class="card-head pad" id="cardhead">
+            <select name="select-customers" id="select-customer">
+                    <option value="allCustomers">All Customers</option>
+                    <option value="activeCustomers">Active Customers</option>
+                    <option value="blockedCustomers">Blocked Customers</option>
+                </select>
+
+                <select name="joinDates" id="join-dates">
+                    <option value="joinLatest">Join Date:Latest</option>
+                    <option value="joinOldest">Join Date:Oldest</option>
+                </select>
+
+                <label class="search-customer">
+                    <span data-icon="search"></span>
+                    <input type="search" id="search-customer" placeholder="Search" autocomplete="off">
+                </label>
+            
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Customer Name</th>
+                    <th>Email Address</th>
+                    <th>Status</th>
+                    <th>Total Spend</th>
+                    <th>Join Date</th>
+                    <th>Actions</th></tr>
+              </thead>
+              <tbody id="userTableBody">
+            <!-- Users will be ahere using JavaScript -->
+
+              </tbody>
+            </table>
+          </div>
+
+          <!---PAGINATION-->
+
+          <div class="pagination">
+            <p class="page-info" id="pageInfo"></p>
+            <nav class="pager" id="pager" aria-label="Products pagination"></nav>
+          </div>
+
+        </article>
+    </section>
+    
+    </div>
+    </div>
+</div>
+</div>
+    <script src="customers.js"></script>
+  </body>
+</html>

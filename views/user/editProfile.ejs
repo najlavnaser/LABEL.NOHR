@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edit Profile – nohr.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/profile.css" />
+  </head>
+  <body>
+    <!-- Icon sprite -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
+      </symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24">
+        <path d="M5 8h14l-1 12H6L5 8z" />
+        <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path
+          d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"
+        />
+      </symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" />
+        <path
+          d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"
+        />
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="10.5" cy="10.5" r="6" />
+        <path d="M15 15l6 6" />
+      </symbol>
+      <symbol id="i-logout" viewBox="0 0 24 24">
+        <path d="M9 4H5v16h4M16 8l4 4-4 4M20 12H9" />
+      </symbol>
+      <symbol id="i-pencil" viewBox="0 0 24 24">
+        <path d="M4 20l1-5L16 4l4 4L9 19l-5 1z" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="1" />
+        <path d="M3 6l9 7 9-7" />
+      </symbol>
+      <symbol id="i-card" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <circle cx="9" cy="11" r="2" />
+        <path d="M6 17c0-2 1.5-3 3-3s3 1 3 3M15 9h3M15 13h3" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" />
+        <path d="M9 12l2 2 4-4" />
+      </symbol>
+      <symbol id="i-home" viewBox="0 0 24 24">
+        <path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6" />
+      </symbol>
+      <symbol id="i-building" viewBox="0 0 24 24">
+        <path d="M5 21V3h10v18M15 9h4v12M9 7h2M9 11h2M9 15h2M3 21h18" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path
+          d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"
+        />
+      </symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24">
+        <path
+          d="M2 6h12v10H2zM14 10h4l3 3v3h-7M6 19a2 2 0 1 0 0-.01M17 19a2 2 0 1 0 0-.01"
+        />
+      </symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24">
+        <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" />
+      </symbol>
+    </svg>
+
+    <div class="page">
+      <!-- Header -->
+      <%- include('../partials/user-header.ejs') %>
+
+      <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <h2 class="sidebar-title">My Profile</h2>
+          <nav class="side-nav" aria-label="Account">
+            <a href="#" class="is-active" aria-current="page"
+              ><svg class="icon"><use href="#i-user" /></svg> Profile</a
+            >
+            <a href="#"
+              ><svg class="icon"><use href="#i-bag" /></svg> Orders</a
+            >
+            <a href="#"
+              ><svg class="icon icon-lg"><use href="#i-heart" /></svg>
+              Wishlist</a
+            >
+            <a href="#"
+              ><svg class="icon icon-lg"><use href="#i-gear" /></svg>
+              Settings</a
+            >
+          </nav>
+          <div class="sidebar-foot">
+            <div class="mini-user">
+              <span class="mini-avatar" aria-hidden="true"
+                ><svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="9" r="5" />
+                  <path d="M2 24c0-6 4.5-9 10-9s10 3 10 9z" /></svg
+              ></span>
+              <span><strong>Alice</strong><small>Dubai</small></span>
+            </div>
+            <a href="#" class="logout" id="logoutBtn"
+              ><svg class="icon icon-lg"><use href="#i-logout" /></svg>
+              Logout</a
+            >
+          </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="content">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="homepage.html">Home</a>><a href="profile.html"
+              >My Profile></a
+            ><strong>Edit Profile</strong>
+          </nav>
+          <h1 class="page-title">My Profile</h1>
+          <p class="page-sub">
+            Manage your personal identity, login credentials, and delivery
+            addresses.
+          </p>
+
+          <!-- Identity card -->
+          <section class="card identity">
+            <div class="profile-pic-container">
+              <!-- The Profile Image -->
+              <img
+                src="/images/defaultProfile.jpg"
+                id="profile-img"
+                alt="Profile Picture"
+              />
+
+              <!-- Hidden File Input -->
+              <input
+                type="file"
+                id="file-input"
+                accept="image/*"
+                onchange="previewImage(event)"
+              />
+
+              <!-- Clickable Edit Overlay Button -->
+              <label for="file-input" class="edit-overlay">
+                <span class="imageText">Change Photo</span>
+              </label>
+            </div>
+            <div class="identity-info">
+              <div class="name-row">
+                <h2 id="profileName">Loading...</h2>
+                <span class="badge badge-green">Verified</span>
+              </div>
+              <p class="member" id="memberSince">Member since</p>
+              <p class="email">
+                <svg class="icon icon-xs"><use href="#i-mail" /></svg
+                ><span id="profileEmail">Loading..</span>
+              </p>
+            </div>
+            <button
+              class="btn btn-outline btn-edit-profile"
+              id="saveProfileBtn"
+              type="button"
+            >
+              <svg class="icon icon-sm"><use href="#i-pencil" /></svg>
+              <span>Save<br />Changes</span>
+            </button>
+          </section>
+
+          <!-- Details + Security -->
+          <div class="grid-2">
+            <section class="card info-card">
+              <header class="card-head">
+                <h3>
+                  <svg class="icon icon-lg"><use href="#i-card" /></svg>
+                  Personal Details
+                </h3>
+              </header>
+              <dl class="fields">
+                <div>
+                  <dt><label for="detailName">Full Name</label></dt>
+                  <dd>
+                    <input
+                      type="text"
+                      id="detailName"
+                      placeholder="Enter Full Name"
+                    />
+                  </dd>
+                </div>
+                <div>
+                  <dt><label for="detailPhone">phone number</label></dt>
+                  <dd>
+                    <input
+                      type="text"
+                      id="detailPhone"
+                      placeholder="Enter Phone"
+                    />
+                  </dd>
+                </div>
+                <div class="gender-field">
+                  <dt>Gender</dt>
+
+                  <dd>
+                    <div class="gender-options">
+                      <label class="gender-option">
+                        <input
+                          type="radio"
+                          name="gender"
+                          id="genderMale"
+                          value="Male"
+                        />
+                        <span>Male</span>
+                      </label>
+
+                      <label class="gender-option">
+                        <input
+                          type="radio"
+                          name="gender"
+                          id="genderFemale"
+                          value="Female"
+                        />
+                        <span>Female</span>
+                      </label>
+                    </div>
+                  </dd>
+                </div>
+              </dl>
+            </section>
+
+            <!------Email change-->
+            <section class="card info-card">
+              <header class="card-head">
+                <h3>
+                  <svg class="icon icon-lg"><use href="#i-shield" /></svg> Login
+                  &amp; Security
+                </h3>
+              </header>
+
+              <div class="sec-row">
+                <div>
+                  <span class="label">Primary email address</span>
+                  <p class="sec-value" id="securityEmail">Loading...</p>
+                </div>
+
+                <button
+                  class="btn btn-outline btn-sm"
+                  type="button"
+                  id="changeEmailBtn"
+                >
+                  Change
+                </button>
+              </div>
+
+              <!-- Email Change Form -->
+              <div
+                id="emailChangeSection"
+                style="display: none; margin-top: 20px"
+              >
+                <div class="form-group">
+                  <label for="newEmail">New email address</label>
+                  <input
+                    type="email"
+                    id="newEmail"
+                    placeholder="Enter your new email address"
+                    required
+                  />
+                </div>
+
+                <button
+                  class="btn btn-outline btn-sm"
+                  type="button"
+                  id="sendEmailOtpBtn"
+                >
+                  Send OTP
+                </button>
+
+                <div id="otpSection" style="display: none; margin-top: 15px">
+                  <div class="form-group">
+                    <label for="emailChangeOtp">Verification OTP</label>
+                    <input
+                      type="text"
+                      id="emailChangeOtp"
+                      placeholder="Enter the 6-digit OTP"
+                      inputmode="numeric"
+                      maxlength="6"
+                    />
+                  </div>
+
+                  <button
+                    class="btn btn-outline btn-sm"
+                    type="button"
+                    id="verifyEmailOtpBtn"
+                  >
+                    Verify OTP
+                  </button>
+                </div>
+
+                <p id="emailChangeMessage" role="status" aria-live="polite"></p>
+              </div>
+
+              <div class="sec-row sec-row-pw">
+                <div>
+                  <span class="label">Account password</span>
+                  <p class="dots" aria-label="Password hidden">••••••••••••</p>
+                </div>
+                <button
+                  class="btn btn-outline btn-sm"
+                  type="button"
+                  id="changePasswordBtn"
+                >
+                  Change
+                </button>
+              </div>
+
+              <div
+                id="passwordChangeSection"
+                style="display: none; margin-top: 24px"
+              >
+                <div class="form-group">
+                  <label for="currentPassword">Current password</label>
+                  <div class="password-input-wrap">
+                    <input
+                      type="password"
+                      id="currentPassword"
+                      placeholder="Enter current password"
+                      autocomplete="current-password"
+                    />
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      data-target="currentPassword"
+                      aria-label="Show current password"
+                      aria-pressed="false"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                        ></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="newPassword">New password</label>
+                  <div class="password-input-wrap">
+                    <input
+                      type="password"
+                      id="newPassword"
+                      placeholder="Enter new password"
+                      autocomplete="new-password"
+                    />
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      data-target="newPassword"
+                      aria-label="Show new password"
+                      aria-pressed="false"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                        ></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmNewPassword">Confirm new password</label>
+                  <div class="password-input-wrap">
+                    <input
+                      type="password"
+                      id="confirmNewPassword"
+                      placeholder="Confirm new password"
+                      autocomplete="new-password"
+                    />
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      data-target="confirmNewPassword"
+                      aria-label="Show confirmation password"
+                      aria-pressed="false"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                        ></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  class="btn btn-outline btn-sm"
+                  type="button"
+                  id="savePasswordBtn"
+                >
+                  Update Password
+                </button>
+
+                <p
+                  id="passwordChangeMessage"
+                  role="status"
+                  aria-live="polite"
+                ></p>
+              </div>
+            </section>
+          </div>
+
+          <!-- Addresses -->
+          <div class="section-head">
+            <div>
+              <h2>Saved Addresses</h2>
+            </div>
+            <button class="btn btn-solid" type="button" id="addAddressBtn">
+              <svg class="icon icon-sm"><use href="#i-plus" /></svg> Add new
+              address
+            </button>
+          </div>
+
+          <div class="grid-2" id="addressList">
+            <article class="card address is-default">
+              <header class="card-head">
+                <h3 class="addr-title">
+                  <svg class="icon"><use href="#i-home" /></svg> Primary
+                  Residence
+                </h3>
+                <span class="badge badge-dark">Default shipping</span>
+              </header>
+              <address>
+                <strong>Alex Rivers</strong>
+                124 Forest Hill Road, Apt 302<br />Portland, Oregon 97201<br />United
+                States
+              </address>
+              <p class="phone">
+                <svg class="icon icon-xs"><use href="#i-phone" /></svg> +1 (555)
+                000-0000
+              </p>
+              <span class="tag"
+                ><svg class="icon icon-xs"><use href="#i-truck" /></svg>
+                Eco-Courier Zero-Emission</span
+              >
+              <footer class="addr-actions">
+                <button class="link-btn" type="button">
+                  <svg class="icon icon-xs"><use href="#i-pencil" /></svg> Edit
+                  address
+                </button>
+                <button class="link-btn muted" type="button">
+                  <svg class="icon icon-xs"><use href="#i-trash" /></svg> Remove
+                </button>
+              </footer>
+            </article>
+
+            <article class="card address">
+              <header class="card-head">
+                <h3 class="addr-title">
+                  <svg class="icon"><use href="#i-building" /></svg> Design
+                  Studio &amp; Workspace
+                </h3>
+                <span class="badge badge-grey">Workplace</span>
+              </header>
+              <address>
+                <strong>Alex Rivers (Design Studio)</strong>
+                742 Evergreen Terrace, Suite 4B<br />Springfield, OR 97477<br />United
+                States
+              </address>
+              <p class="phone">
+                <svg class="icon icon-xs"><use href="#i-phone" /></svg> +1 (555)
+                234-5678
+              </p>
+              <span class="tag"
+                ><svg class="icon icon-xs"><use href="#i-building" /></svg>
+                Leave with concierge desk</span
+              >
+              <footer class="addr-actions">
+                <button class="link-btn muted" type="button">
+                  Set as default
+                </button>
+                <span class="action-group">
+                  <button class="link-btn" type="button">
+                    <svg class="icon icon-xs"><use href="#i-pencil" /></svg>
+                    Edit
+                  </button>
+                  <button class="link-btn muted" type="button">
+                    <svg class="icon icon-xs"><use href="#i-trash" /></svg>
+                    Remove
+                  </button>
+                </span>
+              </footer>
+            </article>
+          </div>
+
+          <!-- Add / Edit Address Form -->
+          <div class="address-form-container" id="addressFormContainer" hidden>
+            <form id="addressForm">
+              <h3 id="addressFormTitle">Add New Address</h3>
+
+              <div class="field">
+                <label for="addressLabel">Address Label</label>
+                <input
+                  type="text"
+                  id="addressLabel"
+                  name="label"
+                  placeholder="Home, Work, etc."
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="addressName">Full Name</label>
+                <input
+                  type="text"
+                  id="addressName"
+                  name="fullName"
+                  placeholder="Enter full name"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="addressPhone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="addressPhone"
+                  name="phone"
+                  placeholder="Enter phone number"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="addressText">Full Address</label>
+                <textarea
+                  id="addressText"
+                  name="address"
+                  rows="4"
+                  placeholder="House/flat, street, area, city, postal code, country"
+                  required
+                ></textarea>
+              </div>
+
+              <label>
+                <input type="checkbox" id="addressDefault" name="isDefault" />
+                Set as default shipping address
+              </label>
+
+              <p id="addressFormMessage" role="alert"></p>
+
+              <button type="submit" class="btn btn-solid" id="saveAddressBtn">
+                Save Address
+              </button>
+
+              <button type="button" class="btn" id="cancelAddressBtn">
+                Cancel
+              </button>
+            </form>
+          </div>
+        </main>
+      </div>
+
+      <!-- Footer -->
+      <%- include('../partials/user-footer') %>
+    </div>
+    <script>
+      const savedImage = localStorage.getItem("profileImage");
+      if (savedImage) {
+        document.getElementById("profile-img").src = savedImage;
+      }
+    </script>
+    <script src="/editProfile.js"></script>
+  </body>
+</html>

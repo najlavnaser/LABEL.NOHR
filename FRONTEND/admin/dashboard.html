@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="logo">nohr.</span>
+      <span class="role">ADMIN</span>
+    </div>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="dashboard.html" class="active" data-icon="dashboard">Dashboard</a>
+      <a href="#" data-icon="bag">Orders</a>
+      <a href="#" data-icon="box">Products</a>
+      <a href="customers.html"data-icon="users">Customers</a>
+      <a href="#" data-icon="box">Category</a>
+      <a href="#" data-icon="tag">Offers</a>
+      <a href="#" data-icon="chat">Reviews</a>
+      <a href="#" data-icon="ticket">Coupons</a>
+      <a href="#" data-icon="return">Return Requests</a>
+      <a href="#" data-icon="chart">Analytics</a>
+    </nav>
+    <div class="nav nav-foot">
+      <a href="#" data-icon="gear">Settings</a>
+      <a href="#" data-icon="help">Support</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" data-icon="menu"></button>
+      <label class="search">
+        <span data-icon="search"></span>
+        <input type="search" id="search" placeholder="Search analytics..." autocomplete="off">
+      </label>
+      
+      <div class="top-right">
+        <button class="icon-btn has-dot" aria-label="Notifications" data-icon="bell"></button>
+        <button class="icon-btn" aria-label="Settings" data-icon="gear"></button>
+        <span class="divider"></span>
+        <div class="user">
+          <div class="user-text"><strong>Najla</strong><small>Founder &amp; CEO</small></div>
+          <span class="avatar" aria-hidden="true">N</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="page-head">
+        <div>
+          <h1>Dashboard Overview</h1>
+          <p>Welcome back.!</p>
+        </div>
+        <div class="actions">
+          <label class="range">
+            <span data-icon="calendar"></span>
+            <select id="range" aria-label="Date range">
+              <option value="7">Last 7 Days</option>
+              <option value="14">Last 14 Days</option>
+              <option value="30" selected>Last 30 Days</option>
+            </select>
+          </label>
+          <button class="btn-primary" id="export">EXPORT REPORT</button>
+        </div>
+      </section>
+
+      <section class="kpis">
+        <article class="card kpi">
+          <div class="kpi-top"><span class="kpi-icon" data-icon="cash"></span><span class="badge up">+12.5%</span></div>
+          <h3>TOTAL REVENUE</h3>
+          <p class="kpi-val sm" id="kRevenue">₹1,45,280.50</p>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-top"><span class="kpi-icon" data-icon="cart"></span><span class="badge up">+8.2%</span></div>
+          <h3>TOTAL ORDERS</h3>
+          <p class="kpi-val" id="kOrders">120</p>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-top"><span class="kpi-icon" data-icon="users"></span><span class="badge neutral">+24%</span></div>
+          <h3>ACTIVE CUSTOMERS</h3>
+          <p class="kpi-val" id="kCustomers">90</p>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-top"><span class="kpi-icon danger" data-icon="clip"></span><span class="badge down">-0.4%</span></div>
+          <h3>PENDING ORDERS</h3>
+          <p class="kpi-val" id="kPending">4</p>
+        </article>
+      </section>
+
+      <section class="row-2">
+        <article class="card chart-card">
+          <div class="card-head">
+            <h2>SALES PERFORMANCE (<span id="rangeLabel">30</span> DAYS)</h2>
+            <div class="legend">
+              <button class="lg on" data-series="sales"><i class="dot dark"></i>Sales</button>
+              <button class="lg on" data-series="aov"><i class="dot light"></i>Avg. Order Value</button>
+            </div>
+          </div>
+          <div class="chart" id="chart" role="img" aria-label="Bar chart of daily sales"></div>
+          <div class="x-axis"><span id="xStart">Oct 01</span><span id="xMid">Oct 15</span><span id="xEnd">Oct 30</span></div>
+        </article>
+
+      </section>
+
+      <section class="row-pair">
+        <article class="card stock-card">
+          <div class="card-head"><h2><span class="warn" data-icon="alert"></span>LOW STOCK ALERTS</h2></div>
+          <div id="stock" class="stock-list"></div>
+          <button class="btn-outline" id="restock">RESTOCK INVENTORY</button>
+        </article>
+
+        <article class="card cat-card">
+          <div class="card-head"><h2>TOP CATEGORIES</h2></div>
+          <div id="cats" class="cats"></div>
+        </article>
+      </section>
+
+      <section class="row-3">
+        <article class="card table-card">
+          <div class="card-head pad">
+            <h2>TOP SELLING PRODUCTS</h2>
+            <a href="#" class="link">VIEW ALL</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>RANK</th><th>PRODUCT NAME</th><th>CATEGORY</th><th>UNITS<br>SOLD</th><th>REVENUE</th></tr>
+              </thead>
+              <tbody id="products"></tbody>
+            </table>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="dashboard.js"></script>
+</body>
+</html>
